@@ -1,0 +1,26 @@
+// Global app SCSS — custom additions on top of Quasar's dark theme
+
+// Global resets
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Space Grotesk', 'Inter', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0a0f1a; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10b981, #06b6d4);
+  border-radius: 3px;
+}
+
+// Quasar table dark overrides
+.q-table--dark .q-table__bottom {
+  border-top: 1px solid rgba(30, 41, 59, 0.6);
+}
+
+.q-drawer--dark {
+  background: #0f1623 !important;
+}
