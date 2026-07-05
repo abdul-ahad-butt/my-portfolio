@@ -14,7 +14,7 @@ export default {
     }
 
     // 2. Route: API endpoints
-    if (url.pathname.startsWith('/api/inquiries')) {
+    if (url.pathname.startsWith('/api/inquiries') || url.pathname.startsWith('/api/auth')) {
       return handleApiRequest(request, env, url).catch(err => {
         return new Response(JSON.stringify({ error: err.message }), {
           status: 500,
@@ -51,6 +51,25 @@ async function handleApiRequest(request, env, url) {
 
     return new Response(JSON.stringify({ success: true, id }), {
       status: 201,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
+  }
+
+  // POST: Login (Public)
+  if (method === 'POST' && url.pathname === '/api/auth/login') {
+    const body = await request.json();
+    const { username, password } = body;
+    
+    // Default credentials if not set in environment
+    const validUsername = env.ADMIN_USERNAME || 'Abdul Ahad Butt';
+    const validPassword = env.ADMIN_PASSWORD || 'admin123';
+
+    if (username !== validUsername || password !== validPassword) {
+      return new Response(JSON.stringify({ success: false, error: 'Invalid credentials.' }), { status: 401, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+    }
+    
+    return new Response(JSON.stringify({ success: true, token: env.ADMIN_KEY }), {
+      status: 200,
       headers: { 'Content-Type': 'application/json', ...corsHeaders }
     });
   }
