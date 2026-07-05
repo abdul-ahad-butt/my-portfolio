@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Send, User, Mail, MessageSquare, CheckCircle2, AlertCircle, X } from 'lucide-react';
 
-const API_BASE = 'http://localhost:3001';
+const API_BASE = 'https://my-portfolio.abdulahadbutt420.workers.dev';
 
 export default function HireMeModal({ isOpen, onClose }) {
   const [form, setForm]     = useState({ name: '', email: '', subject: '', message: '' });
@@ -22,7 +22,7 @@ export default function HireMeModal({ isOpen, onClose }) {
     setLoading(true);
     setStatus(null);
     try {
-      const res = await fetch(`${API_BASE}/api/queries`, {
+      const res = await fetch(`${API_BASE}/api/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -41,9 +41,8 @@ export default function HireMeModal({ isOpen, onClose }) {
         setForm({ name: '', email: '', subject: '', message: '' });
       }
     } catch (networkErr) {
-      console.warn('[Contact Form] Backend unreachable:', networkErr);
-      setStatus('success');
-      setForm({ name: '', email: '', subject: '', message: '' });
+      console.error('[Contact Form] Backend unreachable:', networkErr);
+      setStatus('api-error');
     } finally {
       setLoading(false);
     }
