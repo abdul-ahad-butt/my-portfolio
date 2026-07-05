@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Send, User, Mail, MessageSquare, CheckCircle2, AlertCircle, X } from 'lucide-react';
 
-const API_BASE = 'https://my-portfolio.abdulahadbutt420.workers.dev';
+const API_BASE = import.meta.env.DEV ? 'http://localhost:3001' : (import.meta.env.VITE_API_BASE_URL || 'https://my-portfolio.abdulahadbutt420.workers.dev');
 
 export default function HireMeModal({ isOpen, onClose }) {
   const [form, setForm]     = useState({ name: '', email: '', subject: '', message: '' });
