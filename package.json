@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port 9000",
     "build": "vite build",
-    "preview": "vite preview --port 9000"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "lucide-react": "^0.488.0",
@@ -15,10 +16,12 @@
     "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.43.0",
     "@tailwindcss/vite": "^4.3.2",
     "@vitejs/plugin-react": "^4.5.2",
     "concurrently": "^10.0.3",
     "tailwindcss": "^4.3.2",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "wrangler": "^4.107.0"
   }
 }
