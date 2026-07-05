@@ -1,7 +1,7 @@
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Key',
+  'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Admin-Key',
 };
 
 export default {
@@ -10,7 +10,7 @@ export default {
 
     // 1. Handle CORS Preflight
     if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: corsHeaders });
+      return new Response(null, { status: 204, headers: corsHeaders });
     }
 
     // 2. Route: API endpoints
@@ -62,7 +62,7 @@ async function handleApiRequest(request, env, url) {
     
     // Default credentials if not set in environment
     const validUsername = env.ADMIN_USERNAME || 'Abdul Ahad Butt';
-    const validPassword = env.ADMIN_PASSWORD || 'admin123';
+    const validPassword = env.ADMIN_PASSWORD || 'Ahad-(Butt)Dispatch';
 
     if (username !== validUsername || password !== validPassword) {
       return new Response(JSON.stringify({ success: false, error: 'Invalid credentials.' }), { status: 401, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
