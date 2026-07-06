@@ -41,6 +41,30 @@ export default {
 
 async function handleApiRequest(request, env, url) {
   const method = request.method;
+
+  // GET: Initialize Database Schema (Auto-setup)
+  if (method === 'GET' && url.pathname === '/api/init-db') {
+    if (!env.DB) return new Response('Database not bound', { status: 503 });
+    try {
+      await env.DB.exec(`
+        CREATE TABLE IF NOT EXISTS inquiries (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            subject TEXT NOT NULL,
+            message TEXT NOT NULL,
+            status TEXT DEFAULT 'unread',
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
+      `);
+      return new Response(JSON.stringify({ success: true, message: "Database schema applied successfully!" }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      });
+    } catch (e) {
+      return new Response(JSON.stringify({ error: e.message }), { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+    }
+  }
   
   // POST: Create new inquiry (Public)
   if (method === 'POST') {
