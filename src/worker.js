@@ -136,7 +136,11 @@ async function handleApiRequest(request, env, url) {
 
     return new Response(JSON.stringify({ success: true, data: mapped }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+      headers: { 
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store, no-cache, must-revalidate',
+        ...corsHeaders 
+      }
     });
   }
 
