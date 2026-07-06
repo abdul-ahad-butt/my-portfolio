@@ -7,10 +7,10 @@ directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "single-page-application"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "inquiries-db"
-database_id = "PLACEHOLDER_DATABASE_ID"
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "inquiries-db"
+# database_id = "PLACEHOLDER_DATABASE_ID"
 
 [vars]
 ADMIN_KEY = "my-secret-admin-key"

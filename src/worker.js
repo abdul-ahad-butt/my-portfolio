@@ -44,6 +44,9 @@ async function handleApiRequest(request, env, url) {
   
   // POST: Create new inquiry (Public)
   if (method === 'POST') {
+    if (!env.DB) {
+      return new Response(JSON.stringify({ error: 'Database not configured. Please add D1 database ID in wrangler.toml.' }), { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+    }
     const body = await request.json();
     const { name, email, subject, message } = body;
     
@@ -89,6 +92,9 @@ async function handleApiRequest(request, env, url) {
 
   // GET: Fetch all inquiries (Admin)
   if (method === 'GET') {
+    if (!env.DB) {
+      return new Response(JSON.stringify({ error: 'Database not configured.' }), { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+    }
     const { results } = await env.DB.prepare(
       `SELECT * FROM inquiries ORDER BY created_at DESC`
     ).all();
@@ -112,6 +118,9 @@ async function handleApiRequest(request, env, url) {
 
   // PATCH: Update status (Admin)
   if (method === 'PATCH') {
+    if (!env.DB) {
+      return new Response(JSON.stringify({ error: 'Database not configured.' }), { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+    }
     const id = url.pathname.split('/').pop();
     const body = await request.json();
     if (!id || !body.status) {
@@ -127,6 +136,9 @@ async function handleApiRequest(request, env, url) {
 
   // DELETE: Remove inquiry (Admin)
   if (method === 'DELETE') {
+    if (!env.DB) {
+      return new Response(JSON.stringify({ error: 'Database not configured.' }), { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+    }
     const id = url.pathname.split('/').pop();
     if (!id) {
       return new Response(JSON.stringify({ error: 'Missing ID' }), { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
@@ -141,6 +153,9 @@ async function handleApiRequest(request, env, url) {
 
   // POST (Bulk Actions): Update/Delete multiple inquiries (Admin)
   if (method === 'POST' && url.pathname.endsWith('/bulk')) {
+    if (!env.DB) {
+      return new Response(JSON.stringify({ error: 'Database not configured.' }), { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
+    }
     const body = await request.json();
     const { action, ids } = body;
     if (!action || !ids || !Array.isArray(ids) || ids.length === 0) {
