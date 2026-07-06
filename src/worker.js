@@ -21,7 +21,7 @@ export default {
     }
 
     // 2. Route: API endpoints
-    if (url.pathname.startsWith('/api/inquiries') || url.pathname.startsWith('/api/auth')) {
+    if (url.pathname.startsWith('/api/inquiries') || url.pathname.startsWith('/api/auth') || url.pathname === '/api/init-db') {
       return handleApiRequest(request, env, url).catch(err => {
         return new Response(JSON.stringify({ error: err.message }), {
           status: 500,
@@ -67,7 +67,7 @@ async function handleApiRequest(request, env, url) {
   }
   
   // POST: Create new inquiry (Public)
-  if (method === 'POST') {
+  if (method === 'POST' && url.pathname === '/api/inquiries') {
     if (!env.DB) {
       return new Response(JSON.stringify({ error: 'Database not configured. Please add D1 database ID in wrangler.toml.' }), { status: 503, headers: { 'Content-Type': 'application/json', ...corsHeaders } });
     }
