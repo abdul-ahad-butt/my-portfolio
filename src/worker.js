@@ -46,7 +46,7 @@ async function handleApiRequest(request, env, url) {
   if (method === 'GET' && url.pathname === '/api/init-db') {
     if (!env.DB) return new Response('Database not bound', { status: 503 });
     try {
-      await env.DB.exec(`
+      await env.DB.prepare(`
         CREATE TABLE IF NOT EXISTS inquiries (
             id TEXT PRIMARY KEY,
             name TEXT NOT NULL,
@@ -55,8 +55,8 @@ async function handleApiRequest(request, env, url) {
             message TEXT NOT NULL,
             status TEXT DEFAULT 'unread',
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        );
-      `);
+        )
+      `).run();
       return new Response(JSON.stringify({ success: true, message: "Database schema applied successfully!" }), {
         status: 200,
         headers: { 'Content-Type': 'application/json', ...corsHeaders }
