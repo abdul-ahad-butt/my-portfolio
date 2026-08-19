@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "wrangler dev",
+    "build": "echo \"Worker only - no frontend build required\"",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "lucide-react": "^1.23.0",

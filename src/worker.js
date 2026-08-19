@@ -20,7 +20,15 @@ export default {
       });
     }
 
-    // 2. Route: API endpoints
+    // 2. Health check at root
+    if (url.pathname === '/' && request.method === 'GET') {
+      return new Response(
+        JSON.stringify({ status: "online", service: "Portfolio Backend API" }),
+        { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // 3. Route: API endpoints
     if (url.pathname.startsWith('/api/inquiries') || url.pathname.startsWith('/api/auth') || url.pathname === '/api/init-db') {
       return handleApiRequest(request, env, url).catch(err => {
         return new Response(JSON.stringify({ error: err.message }), {
@@ -30,12 +38,11 @@ export default {
       });
     }
 
-    // 3. Fallback: serve static assets built by Vite
-    try {
-      return await env.ASSETS.fetch(request);
-    } catch (e) {
-      return new Response('Asset not found', { status: 404 });
-    }
+    // 4. Fallback: Not found
+    return new Response(JSON.stringify({ error: 'Not found' }), {
+      status: 404,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
   },
 };
 
