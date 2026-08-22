@@ -163,7 +163,7 @@ export default function Hero() {
                 { value: '5+', label: 'Years Experience' },
                 { value: '6+', label: 'Companies Served' },
                 { value: '3', label: 'Active Roles' },
-                { value: '2', label: 'Live Projects' },
+                { value: '7', label: 'Live Projects' },
               ].map(({ value, label }) => (
                 <div key={label} style={{ textAlign: 'center', minWidth: '80px' }}>
                   <div style={{
