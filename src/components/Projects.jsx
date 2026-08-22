@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Cloud, Globe, ArrowUpRight, Server, Network, Code2, ShoppingCart, Bell, Smartphone, Activity, Palette, Zap, Database, Phone, Monitor } from 'lucide-react';
+import { Cloud, Globe, ArrowUpRight, Server, Network, Code2, ShoppingCart, Bell, Smartphone, Activity, Palette, Zap, Database, Phone, Monitor, Video, Bot, MessageSquare } from 'lucide-react';
 
 const PROJECTS = [
   {
@@ -81,6 +81,19 @@ const PROJECTS = [
     features: ['State-to-area-code dynamic mapping engine', 'Fast client-side sheet parsing & export', 'Strict TypeScript type safety', 'Intuitive data filter interface'],
     accent: '#ec4899',
     accentAlt: '#f472b6',
+  },
+  {
+    id: 'prompt-to-video',
+    icon: <Video size={28} />,
+    iconBg: 'linear-gradient(135deg, #ef4444, #f87171)',
+    title: 'PromptToVideo & AI Character Suite',
+    subtitle: 'on Gemini AI, Remotion & Real-time Chat',
+    description: 'An AI-powered interactive platform that enables users to generate automated videos and create custom AI characters for live, real-time interactive chat sessions.',
+    tags: ['AI Character Engine', 'Live AI Chat', 'Gemini AI', 'Remotion / 3D'],
+    tagIcons: [<Bot size={11} />, <MessageSquare size={11} />, <Zap size={11} />, <Video size={11} />],
+    features: ['Custom AI character builder with persona & voice configuration', 'Interactive live chat engine powered by Gemini AI', 'Text-to-video pipeline with Remotion & Three.js 3D rendering', 'Edge TTS audio synthesis & real-time lipsync integration'],
+    accent: '#ef4444',
+    accentAlt: '#f87171',
   }
 ];
 
@@ -293,6 +306,7 @@ export default function Projects() {
                   selectedProject.id === 'artsbyas-ecommerce' ? 'https://artsbyas-website.pages.dev/' : 
                   selectedProject.id === 'dynamic-contact' ? 'https://lead-generator-8wp.pages.dev/' : 
                   selectedProject.id === 'office-bell' ? 'https://office-boy-receiver-frontend.pages.dev/' : 
+                  selectedProject.id === 'prompt-to-video' ? 'https://clip-cut.pages.dev/' : 
                   '#'
                 }
                 target="_blank"
