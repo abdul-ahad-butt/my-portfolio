@@ -291,6 +291,7 @@ export default function Projects() {
                   selectedProject.id === 'vpn-simulator' ? 'https://346ed908-a4db-40fd-9b60-13042c1e6a92-00-hc0jd3d6laew.picard.replit.dev/vortex-vpn/login' : 
                   selectedProject.id === 'cocora-delights' ? 'https://cocoradelights.com/' : 
                   selectedProject.id === 'artsbyas-ecommerce' ? 'https://artsbyas-website.pages.dev/' : 
+                  selectedProject.id === 'dynamic-contact' ? 'https://lead-generator-8wp.pages.dev/' : 
                   '#'
                 }
                 target="_blank"
