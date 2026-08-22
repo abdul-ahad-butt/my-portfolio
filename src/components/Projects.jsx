@@ -292,6 +292,7 @@ export default function Projects() {
                   selectedProject.id === 'cocora-delights' ? 'https://cocoradelights.com/' : 
                   selectedProject.id === 'artsbyas-ecommerce' ? 'https://artsbyas-website.pages.dev/' : 
                   selectedProject.id === 'dynamic-contact' ? 'https://lead-generator-8wp.pages.dev/' : 
+                  selectedProject.id === 'office-bell' ? 'https://office-boy-receiver-frontend.pages.dev/' : 
                   '#'
                 }
                 target="_blank"
