@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Cloud, Globe, ArrowUpRight, Server, Network, Code2 } from 'lucide-react';
+import { Cloud, Globe, ArrowUpRight, Server, Network, Code2, ShoppingCart, Bell, Smartphone, Activity, Palette, Zap, Database, Phone, Monitor } from 'lucide-react';
 
 const PROJECTS = [
   {
@@ -30,6 +30,58 @@ const PROJECTS = [
     accent: '#06b6d4',
     accentAlt: '#6366f1',
   },
+  {
+    id: 'cocora-delights',
+    icon: <ShoppingCart size={28} />,
+    iconBg: 'linear-gradient(135deg, #f59e0b, #fbbf24)',
+    title: 'Cocora Delights Brand & Web Experience',
+    subtitle: 'on Cloudflare Pages / Brand Infrastructure',
+    description: 'A full luxury e-commerce and brand experience platform for a premium chocolate brand. Features custom brand identity integration, responsive luxury UI layouts, multi-currency product display (PKR/AED), and optimized static delivery.',
+    tags: ['Web Architecture', 'E-Commerce UI', 'Cloudflare Infrastructure'],
+    tagIcons: [<Code2 size={11} />, <ShoppingCart size={11} />, <Cloud size={11} />],
+    features: ['Luxury UI/UX design & monogram integration', 'Multi-currency pricing & regional shipping logic', 'Ultra-fast global distribution via Cloudflare Pages', 'Responsive mobile-first shopping experience'],
+    accent: '#f59e0b',
+    accentAlt: '#fbbf24',
+  },
+  {
+    id: 'office-bell',
+    icon: <Bell size={28} />,
+    iconBg: 'linear-gradient(135deg, #3b82f6, #60a5fa)',
+    title: 'Office Bell & Notification System',
+    subtitle: 'on Flutter & WebSockets',
+    description: 'Real-time cross-platform notification network featuring a web-based sender interface connected to a persistent Android receiver application for instant workplace alerts.',
+    tags: ['Flutter Development', 'Real-time WebSockets', 'Full-Stack System'],
+    tagIcons: [<Smartphone size={11} />, <Activity size={11} />, <Server size={11} />],
+    features: ['Low-latency WebSocket real-time triggers', 'Background Android push service integration', 'Clean sender dashboard UI', 'Cross-platform architecture (Web + Flutter)'],
+    accent: '#3b82f6',
+    accentAlt: '#60a5fa',
+  },
+  {
+    id: 'artsbyas-ecommerce',
+    icon: <Palette size={28} />,
+    iconBg: 'linear-gradient(135deg, #8b5cf6, #a78bfa)',
+    title: 'ArtsbyAS E-Commerce Platform',
+    subtitle: 'on Cloudflare Workers & D1',
+    description: 'Full-stack custom e-commerce solution and administrative management dashboard for custom calligraphy and art pieces, powered by edge serverless functions and relational storage.',
+    tags: ['Edge Computing', 'Full-Stack E-Commerce', 'Database Management'],
+    tagIcons: [<Zap size={11} />, <ShoppingCart size={11} />, <Database size={11} />],
+    features: ['Serverless API endpoints on Cloudflare Workers', 'Custom admin management dashboard', 'Dynamic relational catalog using Cloudflare D1', 'Secure checkout & order workflow'],
+    accent: '#8b5cf6',
+    accentAlt: '#a78bfa',
+  },
+  {
+    id: 'dynamic-contact',
+    icon: <Phone size={28} />,
+    iconBg: 'linear-gradient(135deg, #ec4899, #f472b6)',
+    title: 'Dynamic Contact & Area Code Generator',
+    subtitle: 'on React & TypeScript',
+    description: 'High-speed web application for North American phone format mapping and dynamic state-by-state area code verification built with React and interactive sheet processing.',
+    tags: ['React / TypeScript', 'Data Processing', 'Frontend Engineering'],
+    tagIcons: [<Code2 size={11} />, <Database size={11} />, <Monitor size={11} />],
+    features: ['State-to-area-code dynamic mapping engine', 'Fast client-side sheet parsing & export', 'Strict TypeScript type safety', 'Intuitive data filter interface'],
+    accent: '#ec4899',
+    accentAlt: '#f472b6',
+  }
 ];
 
 export default function Projects() {
@@ -81,13 +133,11 @@ export default function Projects() {
               className="glass-card"
               onMouseEnter={() => setHovered(proj.id)}
               onMouseLeave={() => setHovered(null)}
-              onClick={() => {
-                if (proj.id === 'cloud-storage' || proj.id === 'vpn-simulator') setSelectedProject(proj);
-              }}
+              onClick={() => setSelectedProject(proj)}
               style={{
                 borderRadius: '1.25rem',
                 padding: '2.25rem',
-                cursor: (proj.id === 'cloud-storage' || proj.id === 'vpn-simulator') ? 'pointer' : 'default',
+                cursor: 'pointer',
                 position: 'relative',
                 overflow: 'hidden',
                 border: hovered === proj.id
