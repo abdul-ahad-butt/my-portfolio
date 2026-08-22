@@ -289,6 +289,7 @@ export default function Projects() {
                 href={
                   selectedProject.id === 'cloud-storage' ? 'https://sky-vault-drive.base44.app' : 
                   selectedProject.id === 'vpn-simulator' ? 'https://346ed908-a4db-40fd-9b60-13042c1e6a92-00-hc0jd3d6laew.picard.replit.dev/vortex-vpn/login' : 
+                  selectedProject.id === 'cocora-delights' ? 'https://cocoradelights.com/' : 
                   '#'
                 }
                 target="_blank"
