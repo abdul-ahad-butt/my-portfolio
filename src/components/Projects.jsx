@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Cloud, Globe, ArrowUpRight, Server, Network, Code2, ShoppingCart, Bell, Smartphone, Activity, Palette, Zap, Database, Phone, Monitor, Video, Bot, MessageSquare } from 'lucide-react';
+import NextGenDialCard from './NextGenDialCard';
 
 const PROJECTS = [
   {
@@ -247,6 +248,7 @@ export default function Projects() {
               </div>
             </div>
           ))}
+          <NextGenDialCard />
         </div>
       </div>
 
