@@ -298,7 +298,7 @@ export default function Contact() {
             border: '1px solid rgba(30,41,59,0.6)',
           }}>
             <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 500, marginBottom: '0.6rem' }}>Current Roles</div>
-            {['Sales Specialist @ PiRails', 'Executive Sales Manager @ DispatchGrow', 'Human Resources Recruitment Assistant @ Wasilay'].map(r => (
+            {['Senior Full Developer @ Wasilay', 'Human Resources Recruitment Assistant @ Wasilay'].map(r => (
               <div key={r} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
                 <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#10b981', flexShrink: 0 }} />
                 <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>{r}</span>

@@ -120,7 +120,7 @@ export default function Hero() {
             >
               {[
                 { icon: <MapPin size={14} />, text: 'Lahore, Punjab, Pakistan' },
-                { icon: <Briefcase size={14} />, text: 'PiRails · Active' },
+                { icon: <Briefcase size={14} />, text: 'Wasilay · Active' },
               ].map(({ icon, text }) => (
                 <div key={text} style={{
                   display: 'flex', alignItems: 'center', gap: '0.4rem',
@@ -216,7 +216,7 @@ export default function Hero() {
                 marginBottom: '0.25rem',
               }}>Abdul Ahad Butt</div>
               <div style={{ fontSize: '0.75rem', color: '#10b981', fontWeight: 500 }}>
-                @ PiRails
+                @ Wasilay
               </div>
 
               {/* Divider */}
