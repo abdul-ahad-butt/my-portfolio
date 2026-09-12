@@ -107,6 +107,19 @@ const PROJECTS = [
     features: ['Telnyx WebRTC softphone', 'Real-time state monitoring', 'CSV/Excel lead batching', 'Serverless auth & routing'],
     accent: '#f97316',
     accentAlt: '#fb923c',
+  },
+  {
+    id: 'amk-advertising',
+    icon: <Monitor size={28} />,
+    iconBg: 'linear-gradient(135deg, #84cc16, #a3e635)',
+    title: 'Digital Marketing & Agency Platform',
+    subtitle: 'on Web Architecture',
+    description: 'A high-converting, responsive digital agency website built to showcase marketing services, client outreach solutions, and performance-driven campaigns with seamless lead acquisition capabilities.',
+    tags: ['Digital Marketing', 'Web Development', 'Agency Platform'],
+    tagIcons: [<Activity size={11} />, <Code2 size={11} />, <Globe size={11} />],
+    features: ['High-converting agency UX', 'Lead generation workflows', 'Optimized SEO & page speed', 'Responsive cross-device layout'],
+    accent: '#84cc16',
+    accentAlt: '#a3e635',
   }
 ];
 
@@ -311,18 +324,19 @@ export default function Projects() {
               <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '2rem' }}>
                 You are about to securely navigate to the live {selectedProject.title} environment.
               </p>
-              <a 
-                href={
-                  selectedProject.id === 'nextgendial' ? 'https://nextgendial-web.pages.dev/login' : 
-                  selectedProject.id === 'cloud-storage' ? 'https://sky-vault-drive.base44.app' : 
-                  selectedProject.id === 'vpn-simulator' ? 'https://346ed908-a4db-40fd-9b60-13042c1e6a92-00-hc0jd3d6laew.picard.replit.dev/vortex-vpn/login' : 
-                  selectedProject.id === 'cocora-delights' ? 'https://cocoradelights.com/' : 
-                  selectedProject.id === 'artsbyas-ecommerce' ? 'https://artsbyas-website.pages.dev/' : 
-                  selectedProject.id === 'dynamic-contact' ? 'https://lead-generator-8wp.pages.dev/' : 
-                  selectedProject.id === 'office-bell' ? 'https://office-boy-receiver-frontend.pages.dev/' : 
-                  selectedProject.id === 'prompt-to-video' ? 'https://clip-cut.pages.dev/' : 
-                  '#'
-                }
+                <a 
+                  href={
+                    selectedProject.id === 'amk-advertising' ? 'https://amkadvertising.com/' :
+                    selectedProject.id === 'nextgendial' ? 'https://nextgendial-web.pages.dev/login' : 
+                    selectedProject.id === 'cloud-storage' ? 'https://sky-vault-drive.base44.app' : 
+                    selectedProject.id === 'vpn-simulator' ? 'https://346ed908-a4db-40fd-9b60-13042c1e6a92-00-hc0jd3d6laew.picard.replit.dev/vortex-vpn/login' : 
+                    selectedProject.id === 'cocora-delights' ? 'https://cocoradelights.com/' : 
+                    selectedProject.id === 'artsbyas-ecommerce' ? 'https://artsbyas-website.pages.dev/' : 
+                    selectedProject.id === 'dynamic-contact' ? 'https://lead-generator-8wp.pages.dev/' : 
+                    selectedProject.id === 'office-bell' ? 'https://office-boy-receiver-frontend.pages.dev/' : 
+                    selectedProject.id === 'prompt-to-video' ? 'https://clip-cut.pages.dev/' : 
+                    '#'
+                  }
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setSelectedProject(null)}
