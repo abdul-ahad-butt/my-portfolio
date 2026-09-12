@@ -17,10 +17,10 @@ const JOBS = [
   },
   {
     id: 'pirails',
-    title: 'Sales Specialist',
+    title: 'Senior Full Developer',
     company: 'PiRails',
     type: 'Part-time',
-    period: 'Nov 2025 – Present',
+    period: 'May 2025 – Present',
     location: 'Lahore, Punjab, Pakistan · Hybrid',
     current: true,
     color: '#10b981',
@@ -33,9 +33,9 @@ const JOBS = [
     title: 'Executive Sales Manager',
     company: 'DispatchGrow',
     type: 'Part-time',
-    period: 'Oct 2025 – Present',
+    period: 'Feb 2025 – May 2026',
     location: 'Albuquerque, New Mexico · Hybrid',
-    current: true,
+    current: false,
     color: '#06b6d4',
     description:
       'Leads strategic initiatives to connect businesses with comprehensive, scalable solutions. Oversees sales operations and lead generation strategies. Coordinates with technical departments to provide clients with dedicated teams, including custom software developers, 24/7 dispatch operations, and digital marketing experts. Utilizes advanced CRM workflows for pipeline tracking.',
@@ -58,8 +58,8 @@ const JOBS = [
     id: 'walmart',
     title: 'Customer Service Representative',
     company: 'Walmart',
-    type: 'Part-time',
-    period: 'Aug 2022 – Feb 2024',
+    type: 'Full-time',
+    period: 'Aug 2022 – Dec 2023',
     location: 'Sacramento, California · Remote',
     current: false,
     color: '#f59e0b',
@@ -85,7 +85,7 @@ const JOBS = [
     title: 'Sales Executive',
     company: 'Virtual BDC',
     type: 'Full-time',
-    period: 'May 2021 – Jan 2022',
+    period: 'May 2021 – Dec 2021',
     location: 'TX, United States · Hybrid',
     current: false,
     color: '#14b8a6',
@@ -191,7 +191,7 @@ export default function Experience() {
                           }}>
                             {job.title}
                           </h3>
-                          {job.current && (
+                          {job.current ? (
                             <span style={{
                               fontSize: '0.65rem', fontWeight: 700,
                               padding: '0.15rem 0.6rem', borderRadius: '9999px',
@@ -200,6 +200,16 @@ export default function Experience() {
                               letterSpacing: '0.05em',
                             }}>
                               ACTIVE
+                            </span>
+                          ) : (
+                            <span style={{
+                              fontSize: '0.65rem', fontWeight: 700,
+                              padding: '0.15rem 0.6rem', borderRadius: '9999px',
+                              background: 'rgba(30,41,59,0.5)', color: '#94a3b8',
+                              border: '1px solid rgba(30,41,59,0.8)',
+                              letterSpacing: '0.05em',
+                            }}>
+                              COMPLETED
                             </span>
                           )}
                           <span style={{
