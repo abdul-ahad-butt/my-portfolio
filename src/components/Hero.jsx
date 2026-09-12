@@ -102,7 +102,7 @@ export default function Hero() {
                 lineHeight: 1.5,
                 maxWidth: '600px',
               }}>
-                <span style={{ color: '#10b981', fontWeight: 600 }}>Executive Sales Manager &amp; HR Recruitment</span>
+                <span style={{ color: '#10b981', fontWeight: 600 }}>Senior Full Developer &amp; HR Recruitment</span>
                 {' '}|{' '}
                 <span style={{ color: '#06b6d4', fontWeight: 600 }}>Driving B2B Growth</span>
                 {' '}|{' '}
@@ -162,7 +162,7 @@ export default function Hero() {
               {[
                 { value: '5+', label: 'Years Experience' },
                 { value: '6+', label: 'Companies Served' },
-                { value: '3', label: 'Active Roles' },
+                { value: '2', label: 'Active Roles' },
                 { value: '7', label: 'Live Projects' },
               ].map(({ value, label }) => (
                 <div key={label} style={{ textAlign: 'center', minWidth: '80px' }}>
