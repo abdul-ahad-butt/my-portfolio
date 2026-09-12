@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Cloud, Globe, ArrowUpRight, Server, Network, Code2, ShoppingCart, Bell, Smartphone, Activity, Palette, Zap, Database, Phone, Monitor, Video, Bot, MessageSquare } from 'lucide-react';
-import NextGenDialCard from './NextGenDialCard';
 
 const PROJECTS = [
   {
@@ -95,6 +94,19 @@ const PROJECTS = [
     features: ['Custom AI character builder with persona & voice configuration', 'Interactive live chat engine powered by Gemini AI', 'Text-to-video pipeline with Remotion & Three.js 3D rendering', 'Edge TTS audio synthesis & real-time lipsync integration'],
     accent: '#ef4444',
     accentAlt: '#f87171',
+  },
+  {
+    id: 'nextgendial',
+    icon: <Phone size={28} />,
+    iconBg: 'linear-gradient(135deg, #f97316, #fb923c)',
+    title: 'Automated Outbound Dialer',
+    subtitle: 'on Cloudflare & Telnyx',
+    description: 'An automated outbound dialing platform engineered on a serverless stack using Cloudflare Workers, D1, and Pages. Features comprehensive admin lead management, real-time status monitoring, and seamless Telnyx telephony integration with WebRTC softphone capabilities.',
+    tags: ['Telephony', 'Serverless Stack', 'Core Engineering'],
+    tagIcons: [<Phone size={11} />, <Server size={11} />, <Code2 size={11} />],
+    features: ['Telnyx WebRTC softphone', 'Real-time state monitoring', 'CSV/Excel lead batching', 'Serverless auth & routing'],
+    accent: '#f97316',
+    accentAlt: '#fb923c',
   }
 ];
 
@@ -248,7 +260,6 @@ export default function Projects() {
               </div>
             </div>
           ))}
-          <NextGenDialCard />
         </div>
       </div>
 
@@ -302,6 +313,7 @@ export default function Projects() {
               </p>
               <a 
                 href={
+                  selectedProject.id === 'nextgendial' ? 'https://github.com/abdul-ahad-butt/nextgendial-Dailer' : 
                   selectedProject.id === 'cloud-storage' ? 'https://sky-vault-drive.base44.app' : 
                   selectedProject.id === 'vpn-simulator' ? 'https://346ed908-a4db-40fd-9b60-13042c1e6a92-00-hc0jd3d6laew.picard.replit.dev/vortex-vpn/login' : 
                   selectedProject.id === 'cocora-delights' ? 'https://cocoradelights.com/' : 
